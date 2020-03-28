@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Admin</title>
+
+
+
+
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href={{url_for('static', filename="images/icons/favicon.ico")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/font-awesome-4.7.0/css/font-awesome.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/iconic/css/material-design-iconic-font.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animate/animate.css")}} />
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/css-hamburgers/hamburgers.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animsition/css/animsition.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/select2/select2.min.css")}} />
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/daterangepicker/daterangepicker.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/util.css")}} />
+
+<!--===============================================================================================-->
+<link rel="stylesheet" href={{ url_for('static', filename='css/home.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+</head>
+<body><br><br>
+<h2><center><b>Add items</center></h2><br><br></b>
+<form action="/addItem" method="POST" enctype="multipart/form-data">
+	<center>Name: <br><input type="text" name="name" style="height:22px" required>
+		<br>&nbsp;Price:  <br><input type="text" name="price" style="height:22px";>
+		<br>Description:<br><textarea name="description" rows="4" cols="23"   style="height:22px"></textarea>
+		
+		
+		<br>Stock: <br><input type="text" name="stock" style="height:22px">
+		<br>Category: <br><select name="category" style="height:22px">
+		{% for row in categories %}
+			<option value="{{row[0]}}">{{row[1]}}</option>
+		{% endfor %}</center>
+	</select>
+	<br>
+	<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	Upload Image: <input type="file" name="image" style="height:22px"><br>
+	
+	<br><center><input type="submit"></center>
+</form>
+
+</body>
+</html>
+

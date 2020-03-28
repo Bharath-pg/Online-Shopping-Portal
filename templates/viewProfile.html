@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Edit Profile </title>
+<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
+<!--===============================================================================================-->	
+<link rel="icon" type="image/png" href={{url_for('static', filename="images/icons/favicon.ico")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/font-awesome-4.7.0/css/font-awesome.min.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/iconic/css/material-design-iconic-font.min.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animate/animate.css")}} />
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/css-hamburgers/hamburgers.min.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animsition/css/animsition.min.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/select2/select2.min.css")}} />
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/daterangepicker/daterangepicker.css")}} />
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/util.css")}} />
+	
+<!--===============================================================================================-->
+<link rel="stylesheet" href={{ url_for('static', filename='css/editProfile.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+	<div id="title" style="padding-left: 20px;">
+
+		{% if not loggedIn %}
+		<div id="signInButton" style="float: right; padding-right: 150px; padding-top: 4px;" >
+			<a class="link" href="/loginForm" ><b>Sign In</b></a>
+		</div>
+		{% else %}
+	<div  class="dropdown" style="float: right; padding-right: 110px;">
+		<button class="dropbtn" style="width: 150px; background-color: black;">Hello, <br>{{firstName}}</button>
+		<div class="dropdown-content" style="background-color: white;">
+		
+			<a href="/account/profile/view" style="color: black; background-color: white; ">Your profile</a>
+			<a href="/account/profile/edit" style="color: black; background-color: white; ">Edit Profile</a>
+			<a href="/account/profile/changePassword" style="color: black; background-color: white; ">Change password </a>
+			
+			<a href="/logout" style="color: black; background-color: blanchedalmond; ">Sign Out</a>
+		</div>
+	</div>
+		{% endif %}
+		<div id="kart" style="float: right; padding-top: 2px;">
+			<a class="link"  href="/cart">
+				<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon"/>
+				CART {{noOfItems}}
+			</a>
+		</div>
+		<a href="/" style="text-decoration: none; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: white;"><h1>ONLINE PORTAL</h1></a>
+	</div>
+	<body>
+<center>
+<div class="display">
+	<h2>View profile</h2>
+	<form action="/updateProfile" method="POST">
+		<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " name="email"  value={{profileData[1]}} disabled ></p>
+		<p>First Name:&nbsp;&nbsp;<input type="text"  name="firstName" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[2]}} disabled></p>
+		<p>Last Name: &nbsp;&nbsp;<input type="text" name="lastName" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[3]}} disabled></p>
+		<p>Address 1: &nbsp;&nbsp;&nbsp;<input type="text" name="address1" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[4]}} disabled></p>
+		<p>Address 2: &nbsp;&nbsp;&nbsp;<input type="text" name="address2" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[5]}} disabled></p>
+		<p>Zip Code: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="zipcode" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[6]}} disabled></p>
+		<p>City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " name="city" value={{profileData[7]}} disabled></p>
+		<p>State: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " value={{profileData[8]}} disabled></p>
+		<p>Country: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " name="country" value={{profileData[9]}} disabled></p>
+		<p>Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; " name="phone" value={{profileData[10]}} disabled></p>
+		
+	</form>
+</div></center>
+</body>
+</html>
+

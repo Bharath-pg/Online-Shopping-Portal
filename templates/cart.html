@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Your Cart</title>
+<link rel="icon" type="image/png" href={{url_for('static', filename="images/icons/favicon.ico")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/bootstrap/css/bootstrap.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/font-awesome-4.7.0/css/font-awesome.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="fonts/iconic/css/material-design-iconic-font.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animate/animate.css")}} />
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/css-hamburgers/hamburgers.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/animsition/css/animsition.min.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/select2/select2.min.css")}} />
+<!--===============================================================================================-->	
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="vendor/daterangepicker/daterangepicker.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/util.css")}} />
+<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/main.css")}} />
+<!--===============================================================================================-->
+<link rel="stylesheet" href={{ url_for('static', filename='css/cart.css') }} />
+<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
+
+
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+
+
+<div id="title" style="padding-left: 20px;">
+	
+	
+
+	{% if not loggedIn %}
+		<div id="signInButton" style="float: right; padding-right: 150px; padding-top: 4px;">
+			<a class="link" href="/loginForm">Sign In</a>
+		</div>
+		{% else %}
+		<div  class="dropdown" style="float: right; padding-right: 110px;">
+			<button class="dropbtn" style="width: 150px; background-color: black;">Hello, <br>{{firstName}}</button>
+			<div class="dropdown-content" style="background-color: white;">
+			
+				<a href="/account/profile/view" style="color: black; background-color: white; ">Your profile</a>
+				<a href="/account/profile/edit" style="color: black; background-color: white; ">Edit Profile</a>
+				<a href="/account/profile/changePassword" style="color: black; background-color: white; ">Change password </a>
+				
+				<a href="/logout" style="color: black; background-color: blanchedalmond; ">Sign Out</a>
+			</div>
+		</div>
+	{% endif %}
+	<div id="kart" style="float: right; padding-top: 2px;">
+		<a class="link" href="/cart">
+		<img src={{url_for('static', filename='images/shoppingCart.png')}} id="cartIcon" />
+		CART {{noOfItems}}
+		</a>
+	</div>
+	<a href="/" style="text-decoration: none; padding-top: 120px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color: white;"><h2>ONLINE PORTAL</h2></a>
+</div>
+
+
+
+
+<body>
+<div id="cartItems">
+	<h2><b>&emsp;&emsp;Shopping Cart</b></h2>
+	<div id="tableItems">
+		{% for row in products %}
+		<div>
+			<hr id="seperator">
+			<div id="itemImage">
+				<img src={{url_for('static', filename='uploads/'+row[3])}} id="image"/>
+			</div>
+			<div id="itemName">
+				<span id="itemNameTag">{{row[1]}}</span><br>
+				In stock<br>
+				<a href="/removeFromCart?productId={{row[0]}}">Remove</a>
+			</div>
+			<div id="itemPrice">
+				<font face="verdana"><b>₹{{row[2]}}</b></font>
+			</div>
+		</div>
+		{% endfor %}
+		<hr id="seperator">
+		<div id="total">
+			<span id="subtotal">Subtotal</span> : <font face="verdana" size="4"><b>₹{{totalPrice}}</b></font>
+		</div>
+	</div>
+</div>
+<style>
+	.btn-group button {
+	  background-color: rgb(231, 136, 11);
+	  border: 1px solid rgb(231, 136, 11); 
+	  color: white; /* White text */
+	  
+	  cursor: pointer; /* Pointer/hand icon */
+	  float: left; /* Float the buttons side by side */
+	  
+	}
+	
+	/* Clear floats (clearfix hack) */
+	.btn-group:after {
+	  content: "";
+	  clear: both;
+	  display: table;
+	  margin-left: 30px;;
+	
+	}
+	
+	.btn-group button:not(:last-child) {
+	  border-right: none; /* Prevent double borders */
+	}
+	
+	/* Add a background color on hover */
+	.btn-group button:hover {
+	  background-color: rgb(207, 124, 14);
+	}
+	.button1 {
+		border-radius: 8px;
+		width: 170px;
+		height: 40px;
+		}
+		.button2 {
+		border-radius: 8px;
+		width: 175px;
+		height: 40px;
+		}
+
+	</style>
+<div class="btn-group" style="padding-bottom: 20px; padding-left: 40px;" >
+	<a href="/" style="margin-left: 10%;" ><button class="button1">< Continue Shopping</Continue></button></a></div>
+
+
+<div class="btn-group"  style="padding-bottom: 20px;">
+	<a href="/cart/payment" style="margin-left: 10%;"><button class="button2">Proceed to checkout ></button></a></div>
+
+
+
+
+
+
+	
+
+
+
+
+
+</body>
+</html>
+
