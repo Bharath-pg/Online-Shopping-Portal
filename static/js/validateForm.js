@@ -5,7 +5,9 @@ function validate() {
         return true;
     } else {
         alert("Passwords do not match");
+       
         return false;
+        
     }
 }
 
