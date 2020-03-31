@@ -307,7 +307,7 @@ def removeFromCart():
             conn.rollback()
             msg = "error occured"
     conn.close()
-    return redirect(url_for('root'))
+    return redirect(url_for('cart'))
 
 @app.route("/logout")
 def logout():
