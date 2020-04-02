@@ -1,15 +1,13 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-<title>Edit Profile </title>
-<script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
+<!DOCTYPE html>
+<html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="Yoga Studio Template">
     <meta name="keywords" content="Yoga, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
- 
+    <title>Index</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -28,7 +26,7 @@
 
 
 
-
+<body>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -46,15 +44,15 @@
 	<!-- Search model end -->
 
     <!-- Header Section Begin -->
-    <header class="header-section" > 
-        <div class="container-fluid">
-            <div class="inner-header">
+    <header class="header-section" style="background-color: #B0BCC2">
+        <div class="container-fluid"  >
+            <div class="inner-header" >
                 <div class="logo">
-                    <a href="/"><h3><b>Online Shopping Portal</b></h3></a>
+                    <a href=""><h3><b>Online Shopping Portal</b></h3></a>
                 </div>
                 <div class="header-right">
                     <img src={{ url_for('static', filename="bharath/img/icons/search.png" )}} alt="" class="search-trigger"/>
-                  
+                    
                     
                     
                     <a href="/cart"><img src={{ url_for('static', filename="bharath/img/icons/bag.png" )}} alt=""/>
@@ -63,14 +61,14 @@
                 </div>
         
                 {% if not loggedIn %}
-                <div class="user-access">
+                <div class="user-access" >
                    
                     <a href="/loginForm" >Sign in</a>
                 </div>
                 {% else %}
                
                     <div>
-                        <nav class="main-menu mobile-menu">
+                        <nav class="main-menu mobile-menu" >
                             <ul>
                                 <li><a href="">Hello, {{firstName}}</a>
                                 <ul class="sub-menu">
@@ -90,7 +88,7 @@
                
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a href="/">Home</a></li>
+                        <li><a class="active" href="">Home</a></li>
                         <li><a href="">Categories</a>
                             <ul class="sub-menu">
                                 <li><a href="">Women</a></li>
@@ -107,68 +105,33 @@
 
     
     
-    
-<!-- Header Info Begin -->
-<div class="header-info">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="header-item">
-                    <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
-                    <p>Free shipping on orders over $30 in USA</p>
+    <!-- Header Info Begin -->
+    <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
+                        <p>Free shipping on orders over $30 in USA</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 text-left text-lg-center">
-                <div class="header-item">
-                    <img src={{url_for('static', filename="bharath/img/icons/voucher.png")}} alt=""/>
-                    <p>20% Student Discount</p>
+                <div class="col-md-4 text-left text-lg-center">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/voucher.png")}} alt=""/>
+                        <p>20% Student Discount</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 text-left text-xl-right">
-                <div class="header-item">
-                <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
-                <p>30% off on dresses. Use code: 30OFF</p>
-            </div>
+                <div class="col-md-4 text-left text-xl-right">
+                    <div class="header-item">
+                    <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
+                    <p>30% off on dresses. Use code: 30OFF</p>
+                </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Header Info End -->
-<!-- Header End -->
-
-
-
-	<body>
-	<center>
-<div class="display"><br>
-    <h3>Edit profile</h3><br>
-    <h5 style="color:red;">{{msg11}}</h5>
-	<form action="/updateProfile" method="POST">
-		<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " name="email"  value={{profileData[1]}} readonly="readonly"></p>
-		<p>First Name:&nbsp;&nbsp;<input type="text"  name="firstName" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[2]}}></p>
-		<p>Last Name: &nbsp;&nbsp;<input type="text" name="lastName" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[3]}}></p>
-		<p>Address 1: &nbsp;&nbsp;&nbsp;<input type="text" name="address1" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[4]}}></p>
-		<p>Address 2: &nbsp;&nbsp;&nbsp;<input type="text" name="address2" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[5]}}></p>
-		<p>Zip Code: &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="zipcode" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[6]}}></p>
-		<p>City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " name="city" value={{profileData[7]}}></p>
-		<p>State: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " value={{profileData[8]}}></p>
-		<p>Country: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " name="country" value={{profileData[9]}}></p>
-		<p>Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " name="phone" value={{profileData[10]}}></p>
-		<input type="submit" value="Save" class="primary-btn " style="color: black; border-color: #B0BCC2; background-color: white;" >
-        
-        
-	</form>
-</div></center>
+    <!-- Header Info End -->
+    <!-- Header End -->
 
 
 
@@ -178,8 +141,22 @@
 
 
 
- <!-- Features Section Begin -->
- <section class="features-section spad">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Features Section Begin -->
+<section class="features-section spad">
 	<div class="features-ads">
 		<div class="container">
 			<div class="row">
@@ -210,7 +187,7 @@
 			</div>
 		</div>
 	</div>
-   
+</section>
 
 
 	<!-- Footer Section Begin -->
@@ -294,16 +271,16 @@
 
 
 		</div>
-	</footer>
-	 <!-- Js Plugins -->
-	 <script src={{url_for('static', filename="bharath/js/jquery-3.3.1.min.js")}} ></script>
-	 <script src={{url_for('static', filename="bharath/js/bootstrap.min.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/jquery.magnific-popup.min.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/jquery.slicknav.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/owl.carousel.min.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/jquery.nice-select.min.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/mixitup.min.js")}}></script>
-	 <script src={{url_for('static', filename="bharath/js/main.js")}}></script>
-</body>
-</html>
-
+    </footer>
+   
+    <!-- Js Plugins -->
+    <script src={{url_for('static', filename="bharath/js/jquery-3.3.1.min.js")}} ></script>
+    <script src={{url_for('static', filename="bharath/js/bootstrap.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.magnific-popup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.slicknav.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/owl.carousel.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.nice-select.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/mixitup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/main.js")}}></script>
+    </body>
+    </html>

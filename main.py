@@ -127,6 +127,37 @@ def final():
     
     return render_template("payment.html")
 
+@app.route("/bharath")
+def finalbharath():
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+        cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+
+
+
+@app.route("/dummy")
+def finaldummy():
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute('SELECT productId, name, price, description, image, stock FROM products')
+        itemData = cur.fetchall()
+        cur.execute('SELECT categoryId, name FROM categories')
+        categoryData = cur.fetchall()
+    itemData = parse(itemData)   
+    return render_template('dummy.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+
+
+
+
+
+
 
 
 @app.route("/cart/payment/final")
@@ -151,6 +182,8 @@ def editProfile():
         profileData = cur.fetchone()
     conn.close()
     return render_template("editProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+
 
 @app.route("/account/profile/view")
 def viewProfile():
@@ -251,6 +284,16 @@ def productDescription():
         productData = cur.fetchone()
     conn.close()
     return render_template("productDescription.html", data=productData, loggedIn = loggedIn, firstName = firstName, noOfItems = noOfItems)
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/addToCart")
 def addToCart():

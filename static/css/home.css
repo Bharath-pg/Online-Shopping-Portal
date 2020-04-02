@@ -1,6 +1,10 @@
-
+* {
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
 #itemImage {
-	height: 200px;
+	height: 400px;
 	width: 150px;
 }
 
@@ -26,4 +30,5 @@ table {
 
 .displayCategory ul li {
 	font-size: 20px;
+	
 }
