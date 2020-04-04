@@ -91,13 +91,7 @@
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a href="/">Home</a></li>
-                        <li><a href="">Categories</a>
-                            <ul class="sub-menu">
-                                <li><a href="">Women</a></li>
-                                <li><a href="">Men</a></li>
-                                <li><a href="">Electronics</a></li>
-                            </ul>
-                        </li>
+                        
                       
                     </ul>
                 </nav>
@@ -115,7 +109,7 @@
             <div class="col-md-4">
                 <div class="header-item">
                     <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
-                    <p>Free shipping on orders over $30 in USA</p>
+                    <p>Free shipping on orders over ₹500 in India</p>
                 </div>
             </div>
             <div class="col-md-4 text-left text-lg-center">
@@ -127,7 +121,7 @@
             <div class="col-md-4 text-left text-xl-right">
                 <div class="header-item">
                 <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
-                <p>30% off on dresses. Use code: 30OFF</p>
+                <p>30% off on dresses. </p>
             </div>
             </div>
         </div>
@@ -141,7 +135,7 @@
 	<body>
 	<center>
 <div class="display"><br>
-    <h3>Edit profile</h3><br>
+    <h3>Edit profile</h3>{{msg11}}<br>
     <h5 style="color:red;">{{msg11}}</h5>
 	<form action="/updateProfile" method="POST">
 		<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" style="border-top-style: hidden;	border-right-style: hidden;

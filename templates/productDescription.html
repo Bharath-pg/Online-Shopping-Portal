@@ -93,14 +93,8 @@
                
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a class="active" href="">Home</a></li>
-                        <li><a href="">Categories</a>
-                            <ul class="sub-menu">
-                                <li><a href="">Women</a></li>
-                                <li><a href="">Men</a></li>
-                                <li><a href="">Electronics</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="active" href="/">Home</a></li>
+                       
                       
                     </ul>
                 </nav>
@@ -116,7 +110,7 @@
                 <div class="col-md-4">
                     <div class="header-item">
                         <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
-                        <p>Free shipping on orders over $30 in USA</p>
+                        <p>Free shipping on orders over ₹500 in India</p>
                     </div>
                 </div>
                 <div class="col-md-4 text-left text-lg-center">
@@ -128,7 +122,7 @@
                 <div class="col-md-4 text-left text-xl-right">
                     <div class="header-item">
                     <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
-                    <p>30% off on dresses. Use code: 30OFF</p>
+                    <p>30% off on dresses. </p>
                 </div>
                 </div>
             </div>
@@ -161,6 +155,7 @@
                     <h2>{{data[1]}}</h2>
                     <div class="pc-meta">
                         <h5>₹{{data[2]}}</h5>
+                        
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -171,7 +166,7 @@
                     </div>
                     <p>{{data[3]}}</p>
                     <ul class="tags">
-                       
+                        
                         
                     </ul>
 

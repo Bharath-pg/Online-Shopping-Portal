@@ -88,14 +88,8 @@
                
                 <nav class="main-menu mobile-menu">
                     <ul>
-                        <li><a class="active" href="">Home</a></li>
-                        <li><a href="">Categories</a>
-                            <ul class="sub-menu">
-                                <li><a href="">Women</a></li>
-                                <li><a href="">Men</a></li>
-                                <li><a href="">Electronics</a></li>
-                            </ul>
-                        </li>
+                        <li><a class="active" href="/">Home</a></li>
+                      
                       
                     </ul>
                 </nav>
@@ -114,7 +108,7 @@
             <div class="col-md-4">
                 <div class="header-item">
                     <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
-                    <p>Free shipping on orders over $30 in USA</p>
+                    <p>Free shipping on orders over ₹500 in India</p>
                 </div>
             </div>
             <div class="col-md-4 text-left text-lg-center">
@@ -126,7 +120,7 @@
             <div class="col-md-4 text-left text-xl-right">
                 <div class="header-item">
                 <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
-                <p>30% off on dresses. Use code: 30OFF</p>
+                <p>30% off on dresses. </p>
             </div>
             </div>
         </div>
@@ -238,7 +232,7 @@
     </div>
 
 <center >
-    <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_EZfI0hfw8824jD/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
+    <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_EZfI0hfw8824jD/view" data-text="Pay  ₹{{totalPrice}}" data-color="#528FF0" data-size="large">
         <script>
           (function(){
             var d=document; var x=!d.getElementById('razorpay-embed-btn-js')

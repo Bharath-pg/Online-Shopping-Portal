@@ -34,7 +34,7 @@ def root():
         cur.execute('SELECT categoryId, name FROM categories')
         categoryData = cur.fetchall()
     itemData = parse(itemData)   
-    return render_template('home.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
+    return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 @app.route("/add")
 def admin():
@@ -171,7 +171,7 @@ def final11():
 
 
 
-@app.route("/account/profile/edit")
+@app.route("/account/profile/edit", methods=["GET", "POST"])
 def editProfile():
     if 'email' not in session:
         return redirect(url_for('root'))
@@ -253,6 +253,7 @@ def updateProfile():
                     con.rollback()
                     msg11 = "Error occured"
         con.close()
+        
         return redirect(url_for('editProfile'))
 
 @app.route("/loginForm")
