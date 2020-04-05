@@ -176,7 +176,8 @@
                             <img src={{url_for('static', filename='uploads/'+row[3])}}  />
                             <div class="p-title">
                                 <h5>{{row[1]}}</h5>
-                                <a href="/removeFromCart?productId={{row[0]}}" >Remove</a>
+                                <a onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'"
+                                href="/removeFromCart?productId={{row[0]}}" >Remove</a>
                             </div>
                         </td>
                         <td class="price-col">₹{{row[2]}}</td>

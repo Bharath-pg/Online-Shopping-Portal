@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Registration</title>
+
 <script type="text/javascript" src="{{ url_for('static', filename = 'js/validateForm.js') }}"></script>
 <!--===============================================================================================-->	
 <link rel="icon" type="image/png" href={{url_for('static', filename="images/icons/favicon.ico")}} />
@@ -25,9 +26,105 @@
 	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/main.css")}} />
 <!--===============================================================================================-->
 
-<link rel="stylesheet" href={{ url_for('static', filename='css/editProfile.css') }} />
-<link rel="stylesheet" href={{ url_for('static', filename='css/topStyle.css') }} />
 </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/bootstrap.min.css")}} type="text/css" />
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/font-awesome.min.css")}} type="text/css" />
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/nice-select.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/owl.carousel.min.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/magnific-popup.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/slicknav.min.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/style.css")}} type="text/css"/>
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section" >
+        <div class="container-fluid"  >
+            <div class="inner-header" >
+                <div class="logo">
+                    <a href="/"><h3><b>Online Shopping Portal</b></h3></a>
+                </div>
+
+               
+
+            </div>
+        </div>
+    </header>
+
+    
+    
+    <!-- Header Info Begin -->
+    <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
+                        <p>Free shipping on orders over ₹500 in India</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-lg-center">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/voucher.png")}} alt=""/>
+                        <p>20% Student Discount</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-xl-right">
+                    <div class="header-item">
+                    <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
+                    <p>30% off on dresses.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Info End -->
+	<!-- Header End -->
+
+	
+	<!-- Js Plugins -->
+    <script src={{url_for('static', filename="bharath/js/jquery-3.3.1.min.js")}} ></script>
+    <script src={{url_for('static', filename="bharath/js/bootstrap.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.magnific-popup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.slicknav.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/owl.carousel.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.nice-select.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/mixitup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/main.js")}}></script>
+</body>
+
+
+
 <body>
 <form action="/register" method="POST" onsubmit="return validate()">
     <div class="limiter">
@@ -37,36 +134,33 @@
 					<span class="login100-form-title p-b-26">
 						Sign Up
                     </span>
-       <b>   
-    <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" required style="border-bottom-style: groove;"></p>
+       <p style="font-weight: bold;">   
+    <p><b>Email:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" required size="32"  style="border-bottom-style: groove;  "></p>
 
-    <P>Password: &nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" required style="border-bottom-style: groove;"></p>
+    <P><b>Password: </b>&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" required size="32"  style="border-bottom-style: groove;"></p>
 
-    <p>Confirm Password: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="cpassword" id="cpassword" required size="32" style="border-bottom-style: groove;"></p>
+    <p><b>Confirm Password:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="cpassword" id="cpassword" size="32"  required size="32" style="border-bottom-style: groove;"></p>
 
-    <p><br>First Name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstName" required style="border-bottom-style: groove;"></p>
-    <p>Last Name:&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lastName" style="border-bottom-style: groove;"></p>
-    <p><br>Address Line 1: <input type="text" name="address1" required size="32" style="border-bottom-style: groove;"></p>
-    <p>Address Line 2: <input type="text" name="address2" size="32" style="border-bottom-style: groove;"></p>
-    <p><br>Zipcode: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="zipcode" required maxlength="6" style="border-bottom-style: groove;"></p>
-    <p>City: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="city" required style="border-bottom-style: groove;"></p>
-    <p>State: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" required style="border-bottom-style: groove;"></p>
-    <p>Country: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country" required style="border-bottom-style: groove;"></p>
-    <p>Mobile: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="phone" maxlength="10" required style="border-bottom-style: groove;"></p>
-</b>
+    <p><br><b>First Name:</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstName" required size="32" style="border-bottom-style: groove;"></p>
+    <p><b>Last Name:</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lastName" size="32"  style="border-bottom-style: groove;"></p>
+    <p><br><b>Address Line 1:</b> <input type="text" name="address1" required size="32" style="border-bottom-style: groove;"></p>
+    <p><b>Address Line 2:</b> <input type="text" name="address2" size="32" style="border-bottom-style: groove;"></p>
+    <p><br><b>Zipcode:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" pattern="[0-9]{6}" size="32" name="zipcode" required maxlength="6" style="border-bottom-style: groove;"><small>6 Digit number only</small></p>
+    <p><b>City:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="city" size="32" required style="border-bottom-style: groove;"></p>
+    <p><b>State: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" size="32" required style="border-bottom-style: groove;"></p>
+    <p><b>Country:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country" required size="32"  style="border-bottom-style: groove;"></p>
+    <p><b>Mobile:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" name="phone" size="32"  maxlength="10" required pattern="[0-9]{10}" style="border-bottom-style: groove;"><small>10 Digit number only</small></p>
+    </p>
 
-    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <div class="container-login100-form-btn">
             <div class="wrap-login100-form-btn">
-                <div class="login100-form-bgbtn"></div>
-                <button class="login100-form-btn">Register
-                </button>
+                <center>
+                <button class="primary-btn " style="  color: black; border-color:black ;">Register
+                </button></center>
             </div>
         </div>
-                    <!--<input type="submit" value="Register">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-
-    <!--<a href="/loginForm">Login here</a></p>-->
-
+                   
     <!--===============================================================================================-->
 	<script src={{url_for('static', filename="vendor/jquery/jquery-3.2.1.min.js")}} ></script>
     <!--===============================================================================================-->
@@ -92,11 +186,99 @@
             </span>
 
             <a class="txt2" href="#">
-<a href="/loginForm"><b>Sign In</b></a>
+<a href="/loginForm" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'"><b>Sign In</b>
+</a>
                 
             </a>
         </div>
 </form>
+</div>
+</div>
+</div></form>
+
+ <!-- Footer Section Begin -->
+ <footer class="footer-section spad">
+	<div class="container">
+		<div class="newslatter-form">
+			<div class="row">
+				<div class="col-lg-12">
+					<form action="#">
+						<input type="text" placeholder="Your email address">
+						<button type="submit">Subscribe to our newsletter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer-widget">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>About us</h4>
+						<ul>
+							<li>About Us</li>
+							<li>Community</li>
+							<li>Jobs</li>
+							<li>Shipping</li>
+							<li>Contact Us</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Customer Care</h4>
+						<ul>
+							<li>Search</li>
+							<li>Privacy Policy</li>
+							<li>2019 Lookbook</li>
+							<li>Shipping & Delivery</li>
+							<li>Gallery</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Our Services</h4>
+						<ul>
+							<li>Free Shipping</li>
+							<li>Free Returnes</li>
+							<li>Our Franchising</li>
+							<li>Terms and conditions</li>
+							<li>Privacy Policy</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Information</h4>
+						<ul>
+							<li>Payment methods</li>
+							<li>Times and shipping costs</li>
+							<li>Product Returns</li>
+							<li>Shipping methods</li>
+							<li>Conformity of the products</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="social-links-warp">
+		<div class="container">
+			<div class="social-links">
+				<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+				<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+				<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+				<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+				<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+				<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+			</div>
+		</div>
+
+
+
+	</div>
+</footer>
+<!-- Footer Section End -->
 </body>
 </html>
 

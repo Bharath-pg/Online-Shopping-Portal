@@ -27,28 +27,107 @@
 	<link rel="stylesheet" type="text/css" href={{url_for('static', filename="css/main.css")}} />
 <!--===============================================================================================-->
 
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
 
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
 
-
-
-
-
-
-
+    <!-- Css Styles -->
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/bootstrap.min.css")}} type="text/css" />
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/font-awesome.min.css")}} type="text/css" />
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/nice-select.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/owl.carousel.min.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/magnific-popup.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/slicknav.min.css")}} type="text/css"/>
+    <link rel="stylesheet" href={{ url_for('static', filename="bharath/css/style.css")}} type="text/css"/>
 </head>
 <body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
 
+    <!-- Header Section Begin -->
+    <header class="header-section" >
+        <div class="container-fluid"  >
+            <div class="inner-header" >
+                <div class="logo">
+                    <a href="/"><h3><b>Online Shopping Portal</b></h3></a>
+                </div>
 
+               
 
+            </div>
+        </div>
+    </header>
 
-
-
-
-
-
-
+    
+    
+    <!-- Header Info Begin -->
+    <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/delivery.png" )}} alt=""/>
+                        <p>Free shipping on orders over ₹500 in India</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-lg-center">
+                    <div class="header-item">
+                        <img src={{url_for('static', filename="bharath/img/icons/voucher.png")}} alt=""/>
+                        <p>20% Student Discount</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-left text-xl-right">
+                    <div class="header-item">
+                    <img src={{url_for('static', filename="bharath/img/icons/sales.png")}} alt=""/>
+                    <p>30% off on dresses.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Info End -->
+	<!-- Header End -->
 
 	
+	<!-- Js Plugins -->
+    <script src={{url_for('static', filename="bharath/js/jquery-3.3.1.min.js")}} ></script>
+    <script src={{url_for('static', filename="bharath/js/bootstrap.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.magnific-popup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.slicknav.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/owl.carousel.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/jquery.nice-select.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/mixitup.min.js")}}></script>
+    <script src={{url_for('static', filename="bharath/js/main.js")}}></script>
+</body>
+
+
+
+
+
+<body>
 <form action="/login" method="POST">
 	
 	<div class="limiter">
@@ -60,15 +139,15 @@
 					</span>
 					
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100" data-placeholder="Email"></span>
+					<div class="wrap-input100 validate-input"  data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="email" name="email" required> 
+						<span class="focus-input100" data-placeholder="Email" ></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
 						
-						<input class="input100" type="password" name="password" >
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<input class="input100" type="password" name="password" required >
+					<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 					<br>
 					<h5 style="color:red;">{{error}}</h5>
@@ -76,10 +155,10 @@
 					<br>
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
-							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<center>
+							<button class="primary-btn "  style="  color: black; border-color:black ;">
 								Login
-							</button>
+							</button></center>
 						</div>
 					</div>
 
@@ -89,7 +168,7 @@
 						</span>
 
 						<a class="txt2" href="#">
-				<a href="/registerationForm"><b>Sign Up</b></a>
+				<a href="/registerationForm" onMouseOver="this.style.color='red'" onMouseOut="this.style.color='blue'"><b>Sign Up</b></a>
 							
 						</a>
 					</div>
@@ -118,5 +197,91 @@
 <!--===============================================================================================-->
 	<script src={{url_for('static', filename="js/main.js")}} ></script>
 </form>
+
+
+
+ <!-- Footer Section Begin -->
+ <footer class="footer-section spad">
+	<div class="container">
+		<div class="newslatter-form">
+			<div class="row">
+				<div class="col-lg-12">
+					<form action="#">
+						<input type="text" placeholder="Your email address">
+						<button type="submit">Subscribe to our newsletter</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer-widget">
+			<div class="row">
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>About us</h4>
+						<ul>
+							<li>About Us</li>
+							<li>Community</li>
+							<li>Jobs</li>
+							<li>Shipping</li>
+							<li>Contact Us</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Customer Care</h4>
+						<ul>
+							<li>Search</li>
+							<li>Privacy Policy</li>
+							<li>2019 Lookbook</li>
+							<li>Shipping & Delivery</li>
+							<li>Gallery</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Our Services</h4>
+						<ul>
+							<li>Free Shipping</li>
+							<li>Free Returnes</li>
+							<li>Our Franchising</li>
+							<li>Terms and conditions</li>
+							<li>Privacy Policy</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="single-footer-widget">
+						<h4>Information</h4>
+						<ul>
+							<li>Payment methods</li>
+							<li>Times and shipping costs</li>
+							<li>Product Returns</li>
+							<li>Shipping methods</li>
+							<li>Conformity of the products</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="social-links-warp">
+		<div class="container">
+			<div class="social-links">
+				<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+				<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+				<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+				<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+				<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+				<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+			</div>
+		</div>
+
+
+
+	</div>
+</footer>
+<!-- Footer Section End -->
 </body>
 </html>
