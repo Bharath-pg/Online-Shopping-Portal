@@ -135,11 +135,15 @@
 	<body>
 	<center>
 <div class="display"><br>
-    <h3>Edit profile</h3>{{msg11}}<br>
-    <h5 style="color:red;">{{msg11}}</h5>
-	<form action="/updateProfile" method="POST">
-		<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" style="border-top-style: hidden;	border-right-style: hidden;
-			border-left-style: hidden; " name="email"  value={{profileData[1]}} readonly="readonly"></p>
+    <h3>Edit profile</h3><br>
+    <h5 style="color:red;">{% if msg11 is not none %}
+        {{msg11}}
+        {% else %}
+    
+        {% endif %}</h5><br>
+	<form action="/updateProfile" method="POST" >
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" style="border-top-style: hidden;	border-right-style: hidden;
+			border-left-style: hidden; width: 250px;" name="email"  value={{profileData[1]}} readonly="readonly"></p>
 		<p>First Name:&nbsp;&nbsp;<input type="text"  name="firstName" style="border-top-style: hidden;	border-right-style: hidden;
 			border-left-style: hidden; " value={{profileData[2]}}></p>
 		<p>Last Name: &nbsp;&nbsp;<input type="text" name="lastName" style="border-top-style: hidden;	border-right-style: hidden;
@@ -159,8 +163,9 @@
 		<p>Mobile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" style="border-top-style: hidden;	border-right-style: hidden;
 			border-left-style: hidden; " name="phone" value={{profileData[10]}}></p>
 		<input type="submit" value="Save" class="primary-btn " style="color: black; border-color: #B0BCC2; background-color: white;" >
-        
-        
+       
+ 
+   
 	</form>
 </div></center>
 

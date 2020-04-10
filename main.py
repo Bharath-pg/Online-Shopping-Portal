@@ -175,13 +175,16 @@ def final11():
 def editProfile():
     if 'email' not in session:
         return redirect(url_for('root'))
+
     loggedIn, firstName, noOfItems = getLoginDetails()
     with sqlite3.connect('database.db') as conn:
         cur = conn.cursor()
         cur.execute("SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = ?", (session['email'], ))
         profileData = cur.fetchone()
+       
     conn.close()
-    return render_template("editProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+    msg11 = request.args.get("msg11")
+    return render_template("editProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, msg11=msg11)
 
 
 
@@ -246,15 +249,15 @@ def updateProfile():
                 try:
                     cur = con.cursor()
                     cur.execute('UPDATE users SET firstName = ?, lastName = ?, address1 = ?, address2 = ?, zipcode = ?, city = ?, state = ?, country = ?, phone = ? WHERE email = ?', (firstName, lastName, address1, address2, zipcode, city, state, country, phone, email))
-
                     con.commit()
-                    msg11 = "Saved Successfully"
+                    
+                    msg11 = "Updated Successfully"
                 except:
                     con.rollback()
                     msg11 = "Error occured"
         con.close()
-        
-        return redirect(url_for('editProfile'))
+        return redirect(url_for('editProfile', msg11=msg11))
+     
 
 @app.route("/loginForm")
 def loginForm():
