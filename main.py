@@ -33,7 +33,7 @@ def root():
         itemData = cur.fetchall()
         cur.execute('SELECT categoryId, name FROM categories')
         categoryData = cur.fetchall()
-    itemData = parse(itemData)   
+      
     return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 @app.route("/add")
@@ -98,34 +98,7 @@ def removeItem():
     print(msg)
     return redirect(url_for('root'))
 
-@app.route("/displayCategory")
-def displayCategory():
-        loggedIn, firstName, noOfItems = getLoginDetails()
-        categoryId = request.args.get("categoryId")
-        with sqlite3.connect('database.db') as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT products.productId, products.name, products.price, products.image, categories.name FROM products, categories WHERE products.categoryId = categories.categoryId AND categories.categoryId = ?", (categoryId, ))
-            data = cur.fetchall()
-        conn.close()
-        categoryName = data[0][4]
-        data = parse(data)
-        return render_template('displayCategory.html', data=data, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryName=categoryName)
 
-@app.route("/account/profile")
-def profileHome():
-    if 'email' not in session:
-        return redirect(url_for('root'))
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    return render_template("profileHome.html", loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
-
-
-
-@app.route("/cart/payment")
-def final():
-    
-    
-    
-    return render_template("payment.html")
 
 @app.route("/bharath")
 def finalbharath():
@@ -136,7 +109,7 @@ def finalbharath():
         itemData = cur.fetchall()
         cur.execute('SELECT categoryId, name FROM categories')
         categoryData = cur.fetchall()
-    itemData = parse(itemData)   
+ 
     return render_template('index.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 
@@ -150,7 +123,7 @@ def finaldummy():
         itemData = cur.fetchall()
         cur.execute('SELECT categoryId, name FROM categories')
         categoryData = cur.fetchall()
-    itemData = parse(itemData)   
+
     return render_template('dummy.html', itemData=itemData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, categoryData=categoryData)
 
 
@@ -159,13 +132,6 @@ def finaldummy():
 
 
 
-
-@app.route("/cart/payment/final")
-def final11():
-    if 'email' not in session:
-        return redirect(url_for('root'))
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    return render_template("final.html", loggedIn=loggedIn, firstName=firstName)
 
 
 
@@ -409,18 +375,7 @@ def allowed_file(filename):
     return '.' in filename and \
             filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
-def parse(data):
-    ans = []
-    i = 0
-    while i < len(data):
-        curr = []
-        for j in range(7):
-            if i >= len(data):
-                break
-            curr.append(data[i])
-            i += 1
-        ans.append(curr)
-    return ans
+
 
 if __name__ == '__main__':
     app.run(debug=True)
