@@ -149,19 +149,27 @@
        <p style="font-weight: bold;">   
     <p><b>Email:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="email" name="email" required size="32"  style="border-bottom-style: groove;  "></p>
 
-    <P><b>Password: </b>&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" id="password" required size="32"  style="border-bottom-style: groove;"></p>
+    <P><b>Password: </b>&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" id="password" required size="32"  style="border-bottom-style: groove;"></p>
 
     <p><b>Confirm Password:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="cpassword" id="cpassword" size="32"  required size="32" style="border-bottom-style: groove;"></p>
 
-    <p><br><b>First Name:</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstName" required size="32" style="border-bottom-style: groove;"></p>
+    <p><br><b>First Name:</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="firstName" required size="32" pattern= "^[A-Za-z]+$" title= "Please enter alphabets only" style="border-bottom-style: groove;"></p>
+    
     <p><b>Last Name:</b>&nbsp;&nbsp;&nbsp;&nbsp; <input type="text" name="lastName" size="32"  style="border-bottom-style: groove;"></p>
+    
     <p><br><b>Address Line 1:</b> <input type="text" name="address1" required size="32" style="border-bottom-style: groove;"></p>
+    
     <p><b>Address Line 2:</b> <input type="text" name="address2" size="32" style="border-bottom-style: groove;"></p>
-    <p><br><b>Zipcode:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" pattern="[0-9]{6}" size="32" name="zipcode" required maxlength="6" style="border-bottom-style: groove;"><small>6 Digit number only</small></p>
-    <p><b>City:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="city" size="32" required style="border-bottom-style: groove;"></p>
-    <p><b>State: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" size="32" required style="border-bottom-style: groove;"></p>
-    <p><b>Country:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country" required size="32"  style="border-bottom-style: groove;"></p>
-    <p><b>Mobile:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" name="phone" size="32"  maxlength="10" required pattern="[0-9]{10}" style="border-bottom-style: groove;"><small>10 Digit number only</small></p>
+    
+    <p><br><b>Zipcode:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" pattern="[0-9]{6}" size="32" name="zipcode" required maxlength="6" title = "Please enter 6 Digit number only"style="border-bottom-style: groove;"></p>
+    
+    <p><b>City:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="city" size="32" pattern= "^[A-Za-z]+$" title= "Please enter alphabets only" required style="border-bottom-style: groove;"></p>
+    
+    <p><b>State: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="state" size="32" pattern= "^[A-Za-z]+$" title= "Please enter alphabets only" required style="border-bottom-style: groove;"></p>
+    
+    <p><b>Country:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="country" required size="32" pattern= "^[A-Za-z]+$" title= "Please enter alphabets only" style="border-bottom-style: groove;"></p>
+    
+    <p><b>Mobile:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="tel" name="phone" size="32"  maxlength="10" required pattern="[0-9]{10}" title = "Please enter 10 digit numbers only" style="border-bottom-style: groove;"></p>
     </p>
 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

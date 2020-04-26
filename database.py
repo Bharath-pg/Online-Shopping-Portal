@@ -24,10 +24,7 @@ conn.execute('''CREATE TABLE products
 		name TEXT,
 		price REAL,
 		description TEXT,
-		image TEXT,
-		stock INTEGER,
-		categoryId INTEGER,
-		FOREIGN KEY(categoryId) REFERENCES categories(categoryId)
+		image TEXT
 		)''')
 
 conn.execute('''CREATE TABLE kart
@@ -37,10 +34,7 @@ conn.execute('''CREATE TABLE kart
 		FOREIGN KEY(productId) REFERENCES products(productId)
 		)''')
 
-conn.execute('''CREATE TABLE categories
-		(categoryId INTEGER PRIMARY KEY,
-		name TEXT
-		)''')
+
 
 
 
