@@ -6,6 +6,9 @@ function validate() {
     } else {
         alert("Passwords do not match!");
         
+        document.getElementById("cpassword").value="";
+        document.getElementById("newpassword").value="";
+        document.getElementById.cpass.focus();
         return false;
     }
 }

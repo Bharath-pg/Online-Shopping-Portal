@@ -1,5 +1,5 @@
 from flask import *
-import sqlite3, hashlib, os
+import sqlite3, hashlib
 
 
 app = Flask(__name__)
@@ -23,12 +23,17 @@ def getLoginDetails():
     conn.close()
     return (loggedIn, firstName, noOfItems)
 
+
 @app.route("/")
 def root():
     loggedIn, firstName, noOfItems = getLoginDetails()
     return render_template('index.html',  loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+    
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if request.method == 'POST':  
@@ -68,6 +73,17 @@ def logout():
     session.pop('email', None)
     return redirect(url_for('root'))
 
+
+
+
+@app.route("/loginForm")
+def loginForm():
+    if 'email' in session:
+        return redirect(url_for('root'))
+    else:
+        return render_template('login.html', error='')
+
+
 def is_valid(email, password):
     con = sqlite3.connect('database.db')
     cur = con.cursor()
@@ -79,12 +95,6 @@ def is_valid(email, password):
     return False
 
 
-@app.route("/loginForm")
-def loginForm():
-    if 'email' in session:
-        return redirect(url_for('root'))
-    else:
-        return render_template('login.html', error='')
 
 @app.route("/login", methods = ['POST', 'GET'])
 def login():
@@ -110,6 +120,25 @@ def productDescription():
     conn.close()
     return render_template("productDescription.html", data=productData, loggedIn = loggedIn, firstName = firstName, noOfItems = noOfItems)
 
+@app.route("/addToCart")
+def addToCart():
+    if 'email' not in session:
+        return redirect(url_for('loginForm'))
+    else:
+        productId = int(request.args.get('productId'))
+        with sqlite3.connect('database.db') as conn:
+            cur = conn.cursor()
+            cur.execute("SELECT userId FROM users WHERE email = ?", (session['email'], ))
+            userId = cur.fetchone()[0]
+            try:
+                cur.execute("INSERT INTO kart (userId, productId) VALUES (?, ?)", (userId, productId))
+                conn.commit()
+                msg = "Added successfully"
+            except:
+                conn.rollback()
+                msg = "Error occured"
+        conn.close()
+        return redirect(url_for('root'))
 
 @app.route("/account/profile/view")
 def viewProfile():
@@ -122,8 +151,8 @@ def viewProfile():
         profileData = cur.fetchone()
     conn.close()
     return render_template("viewProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
-
-
+ 
+ 
 @app.route("/account/profile/edit", methods=["GET", "POST"])
 def editProfile():
     if 'email' not in session:
@@ -192,7 +221,7 @@ def changePassword():
                     msg = "Failed"
                 return render_template("changePassword.html", msg=msg,  loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
             else:
-                msg = "Wrong password"
+                msg = "Wrong Old password"
         conn.close()
         return render_template("changePassword.html", msg=msg, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
     else:
@@ -205,25 +234,7 @@ def changePassword():
 
 
 
-@app.route("/addToCart")
-def addToCart():
-    if 'email' not in session:
-        return redirect(url_for('loginForm'))
-    else:
-        productId = int(request.args.get('productId'))
-        with sqlite3.connect('database.db') as conn:
-            cur = conn.cursor()
-            cur.execute("SELECT userId FROM users WHERE email = ?", (session['email'], ))
-            userId = cur.fetchone()[0]
-            try:
-                cur.execute("INSERT INTO kart (userId, productId) VALUES (?, ?)", (userId, productId))
-                conn.commit()
-                msg = "Added successfully"
-            except:
-                conn.rollback()
-                msg = "Error occured"
-        conn.close()
-        return redirect(url_for('root'))
+
 
 @app.route("/cart")
 def cart():
