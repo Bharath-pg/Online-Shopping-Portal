@@ -57,7 +57,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'E:\Python AAT\E-commerce Website\env'
+set -gx VIRTUAL_ENV 'C:\Users\Bharath\Desktop\Online Shopping Portal\Online Shopping Portal\env'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (echo $FISH_VERSION | head -c 1) -lt 3

@@ -23,17 +23,6 @@ def getLoginDetails():
     conn.close()
     return (loggedIn, firstName, noOfItems)
 
-
-@app.route("/")
-def root():
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    return render_template('index.html',  loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
-
-
-@app.errorhandler(404)
-def page_not_found(e):
-    return render_template('404.html'), 404
-    
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
     if request.method == 'POST':  
@@ -68,10 +57,12 @@ def registrationForm():
     return render_template("register.html")
 
 
-@app.route("/logout")
-def logout():
-    session.pop('email', None)
-    return redirect(url_for('root'))
+@app.route("/")
+def root():
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    return render_template('index.html',  loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+
+
 
 
 
@@ -108,7 +99,16 @@ def login():
             error = 'Invalid UserId / Password'
             return render_template('login.html', error=error)
 
+@app.route("/logout")
+def logout():
+    session.pop('email', None)
+    return redirect(url_for('root'))
 
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+    
 @app.route("/productDescription")
 def productDescription():
     loggedIn, firstName, noOfItems = getLoginDetails()
@@ -140,33 +140,7 @@ def addToCart():
         conn.close()
         return redirect(url_for('root'))
 
-@app.route("/account/profile/view")
-def viewProfile():
-    if 'email' not in session:
-        return redirect(url_for('root'))
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
-        cur = conn.cursor()
-        cur.execute("SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = ?", (session['email'], ))
-        profileData = cur.fetchone()
-    conn.close()
-    return render_template("viewProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
- 
- 
-@app.route("/account/profile/edit", methods=["GET", "POST"])
-def editProfile():
-    if 'email' not in session:
-        return redirect(url_for('root'))
 
-    loggedIn, firstName, noOfItems = getLoginDetails()
-    with sqlite3.connect('database.db') as conn:
-        cur = conn.cursor()
-        cur.execute("SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = ?", (session['email'], ))
-        profileData = cur.fetchone()
-       
-    conn.close()
-    msg11 = request.args.get("msg11")
-    return render_template("editProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, msg11=msg11)
 
 
 @app.route("/updateProfile", methods=["GET", "POST"])
@@ -194,9 +168,25 @@ def updateProfile():
                     msg11 = "Error occured"
         con.close()
         return redirect(url_for('editProfile', msg11=msg11))
+
+
+
+@app.route("/account/profile/edit", methods=["GET", "POST"])
+def editProfile():
+    if 'email' not in session:
+        return redirect(url_for('root'))
+
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = ?", (session['email'], ))
+        profileData = cur.fetchone()
+       
+    conn.close()
+    msg11 = request.args.get("msg11")
+    return render_template("editProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems, msg11=msg11)
+
         
-
-
 @app.route("/account/profile/changePassword", methods=["GET", "POST"])
 def changePassword():
     if 'email' not in session:
@@ -226,11 +216,6 @@ def changePassword():
         return render_template("changePassword.html", msg=msg, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
     else:
         return render_template("changePassword.html",  loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
-
-
-     
-
-
 
 
 
@@ -276,6 +261,18 @@ def removeFromCart():
 
 
 
+@app.route("/account/profile/view")
+def viewProfile():
+    if 'email' not in session:
+        return redirect(url_for('root'))
+    loggedIn, firstName, noOfItems = getLoginDetails()
+    with sqlite3.connect('database.db') as conn:
+        cur = conn.cursor()
+        cur.execute("SELECT userId, email, firstName, lastName, address1, address2, zipcode, city, state, country, phone FROM users WHERE email = ?", (session['email'], ))
+        profileData = cur.fetchone()
+    conn.close()
+    return render_template("viewProfile.html", profileData=profileData, loggedIn=loggedIn, firstName=firstName, noOfItems=noOfItems)
+ 
 
 
 if __name__ == '__main__':

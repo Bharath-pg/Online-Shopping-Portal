@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV='E:\Python AAT\E-commerce Website\env'
+VIRTUAL_ENV='C:\Users\Bharath\Desktop\Online Shopping Portal\Online Shopping Portal\env'
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
