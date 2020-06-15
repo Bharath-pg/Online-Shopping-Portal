@@ -21,3 +21,4 @@ Download the zip file of the repository
     
 **5)** Now run the prg by typing **python main.py**  
     
+**Note: If you want to add your own products and their description, you can add them directly to the database file**
