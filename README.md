@@ -11,9 +11,9 @@ Download the zip file of the repository
 
 **Note**: If virtual environment is not installed in your system type **pip install virtualenv**
 
-**2)** Create your own virtual environment by typing virtualenv env (env is the name of the virtual environment. You can give any other name)
+**2)** Create your own virtual environment using the cmd **virtualenv env** (env is the name of the virtual environment. You can give any other name)
 
-**3)** Activate your virtual environment by typing the below cmd
+**3)** Activate your virtual environment using  
 **env\Scripts\activate**
   
   **4)** Install the required dependencies by running the cmd  
