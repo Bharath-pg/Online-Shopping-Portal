@@ -1,6 +1,6 @@
 # Online-Shopping-Portal
 
-**To visit the webpage click here [Online Shopping Portal](http://bharath-flask2.herokuapp.com/)**    
+**To visit the webpage click here [Online Shopping Portal](https://shoppingportal.herokuapp.com/)**    
   
 To run the program follow the below steps:  
   
